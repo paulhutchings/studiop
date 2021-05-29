@@ -36,6 +36,7 @@ exports.form_handler = functions.https.onRequest((req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.set("Access-Control-Allow-Headers", "*");
   console.log(`Received request body: ${req.body}`);
+  const vars = JSON.parse(req.body);
 
   const fn = pug.compileFile(config.template.path);
   const html = fn({
